@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ashwini Clinic — Ayurveda • Modern Medicine • Wellness | Doddanekkundi, Bengaluru</title>
+<meta name="description" content="Ashwini Clinic in Doddanekkundi, Bengaluru — led by Dr. Amareshayya Hosamata (BAMS). Combining Ayurvedic wisdom with modern medicine for holistic, root-cause healthcare. Book an appointment today." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --teal:#0E9E94;
+    --teal-d:#0A746C;
+    --teal-l:#3FBDB2;
+    --ink:#0B2B28;          /* dark green-navy for dark sections */
+    --ink-2:#10403A;
+    --gold:#C8A24C;
+    --gold-d:#A9863A;
+    --mint:#E8F5F3;
+    --mint-2:#DCF0EC;
+    --bg:#F5FAF9;
+    --card:#FFFFFF;
+    --text:#3A4D4B;
+    --muted:#6B807D;
+    --heading:#0C2B28;
+    --line:#E4EEEC;
+    --shadow:0 18px 40px -18px rgba(11,43,40,.22);
+    --shadow-sm:0 8px 24px -12px rgba(11,43,40,.18);
+    --radius:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    color:var(--text);
+    background:var(--bg);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4,h5{font-family:'Plus Jakarta Sans',sans-serif;color:var(--heading);line-height:1.18;font-weight:700}
+  a{text-decoration:none;color:inherit}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+  section{position:relative}
+
+  /* ---------- Buttons ---------- */
+  .btn{display:inline-flex;align-items:center;gap:.55em;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:.95rem;
+       padding:.85em 1.6em;border-radius:60px;cursor:pointer;border:1px solid transparent;transition:.25s;white-space:nowrap}
+  .btn-primary{background:var(--teal);color:#fff;box-shadow:0 12px 24px -10px rgba(14,158,148,.6)}
+  .btn-primary:hover{background:var(--teal-d);transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:var(--heading);border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
+  .btn-gold{background:var(--gold);color:#3a2e09}
+  .btn-gold:hover{background:var(--gold-d);color:#fff;transform:translateY(-2px)}
+  .btn-light{background:#fff;color:var(--teal-d)}
+  .btn-light:hover{transform:translateY(-2px)}
+  .play{width:46px;height:46px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:var(--shadow-sm);color:var(--teal);flex:none}
+
+  /* ---------- Eyebrow / section heads ---------- */
+  .eyebrow{display:inline-flex;align-items:center;gap:.5em;color:var(--teal);font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;
+           font-size:.8rem;letter-spacing:.12em;text-transform:uppercase}
+  .eyebrow::before{content:"";width:22px;height:2px;background:var(--teal);display:inline-block;border-radius:2px}
+  .section-head{text-align:center;max-width:640px;margin:0 auto 50px}
+  .section-head .eyebrow{justify-content:center}
+  .section-head h2{font-size:clamp(1.8rem,3.4vw,2.6rem);margin:.5em 0 .35em;letter-spacing:-.02em}
+  .section-head p{color:var(--muted)}
+
+  /* ================= TOP BAR ================= */
+  .topbar{background:var(--ink);color:#cfe7e3;font-size:.85rem}
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:18px;padding-top:9px;padding-bottom:9px;flex-wrap:wrap}
+  .topbar a{color:#cfe7e3;transition:.2s}
+  .topbar a:hover{color:#fff}
+  .topbar .ti{display:inline-flex;align-items:center;gap:.5em}
+  .topbar .left{display:flex;gap:22px;flex-wrap:wrap}
+  .topbar .rev{display:inline-flex;align-items:center;gap:.45em;color:#ffd97a;font-weight:600}
+  .topbar svg{width:15px;height:15px}
+
+  /* ================= HEADER ================= */
+  header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);transition:.3s}
+  header.scrolled{box-shadow:0 6px 24px -16px rgba(11,43,40,.35)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .logo{display:flex;align-items:center;gap:11px;font-family:'Plus Jakarta Sans',sans-serif}
+  .logo .mark{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--teal),var(--teal-l));display:grid;place-items:center;color:#fff;flex:none;box-shadow:0 8px 18px -8px rgba(14,158,148,.7)}
+  .logo .mark svg{width:24px;height:24px}
+  .logo b{font-size:1.18rem;color:var(--heading);font-weight:800;line-height:1}
+  .logo span{display:block;font-size:.62rem;letter-spacing:.22em;color:var(--gold-d);text-transform:uppercase;font-weight:600;margin-top:3px}
+  nav ul{display:flex;gap:6px;list-style:none}
+  nav a{font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:.93rem;color:var(--heading);padding:.55em .9em;border-radius:8px;transition:.2s;white-space:nowrap}
+  nav a:hover{color:var(--teal);background:var(--mint)}
+  .nav-actions{display:flex;align-items:center;gap:14px}
+  .burger{display:none;background:none;border:none;cursor:pointer;width:42px;height:42px;border-radius:10px;color:var(--heading)}
+  .burger svg{width:26px;height:26px}
+  .nav-cta-mobile{display:none}
+
+  /* ================= HERO ================= */
+  .hero{background:
+        radial-gradient(900px 500px at 88% 8%,var(--mint) 0%,transparent 60%),
+        linear-gradient(180deg,#fff 0%,var(--bg) 100%);
+        overflow:hidden}
+  .hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center;padding:60px 0 40px}
+  .hero-badge{display:inline-flex;align-items:center;gap:.6em;background:#fff;border:1px solid var(--line);
+              padding:.5em 1em .5em .6em;border-radius:60px;font-size:.82rem;font-weight:600;color:var(--ink-2);box-shadow:var(--shadow-sm);margin-bottom:22px}
+  .hero-badge .dot{width:26px;height:26px;border-radius:50%;background:var(--mint);display:grid;place-items:center;color:var(--teal)}
+  .hero-badge .dot svg{width:15px;height:15px}
+  .hero h1{font-size:clamp(2.3rem,5vw,3.7rem);letter-spacing:-.025em;font-weight:800}
+  .hero h1 .accent{color:var(--teal);position:relative;display:inline-block}
+  .hero p.lead{font-size:1.08rem;color:var(--muted);max-width:480px;margin:20px 0 30px}
+  .hero-cta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .hero-cta .watch{display:inline-flex;align-items:center;gap:.7em;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;color:var(--heading)}
+  .hero-contact{display:flex;align-items:center;gap:.7em;margin-top:30px;font-size:.95rem}
+  .hero-contact .ic{width:44px;height:44px;border-radius:12px;background:var(--mint);display:grid;place-items:center;color:var(--teal);flex:none}
+  .hero-contact .ic svg{width:20px;height:20px}
+  .hero-contact small{display:block;color:var(--muted);font-size:.78rem}
+  .hero-contact b{font-family:'Plus Jakarta Sans',sans-serif;color:var(--heading);font-size:1.02rem}
+
+  /* hero visual */
+  .hero-visual{position:relative;display:flex;justify-content:center;align-items:flex-end;min-height:540px}
+  .hero-visual::before{content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+        width:min(490px,96%);aspect-ratio:1/1;border-radius:50%;z-index:0;
+        background:radial-gradient(circle at 50% 42%,var(--mint) 0%,rgba(232,245,243,.55) 46%,transparent 72%)}
+  .hero-visual::after{content:"";position:absolute;bottom:6%;left:50%;transform:translateX(-50%);
+        width:min(430px,84%);aspect-ratio:1/1;border:2px dashed rgba(14,158,148,.25);border-radius:50%;z-index:0}
+  .hero-img{position:relative;z-index:2;width:auto;max-width:100%;max-height:560px;object-fit:contain;
+        filter:drop-shadow(0 24px 34px rgba(11,43,40,.22))}
+  .stat-float{position:absolute;background:#fff;border-radius:16px;box-shadow:var(--shadow);padding:14px 16px;display:flex;align-items:center;gap:12px;z-index:5}
+  .stat-float .ring{width:54px;height:54px;flex:none}
+  .stat-float b{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.15rem;color:var(--heading);display:block;line-height:1}
+  .stat-float small{color:var(--muted);font-size:.74rem}
+  .sf-1{top:14%;left:-6%}
+  .sf-2{bottom:12%;right:-4%}
+  .pill-float{position:absolute;top:46%;right:-2%;background:#fff;border-radius:14px;box-shadow:var(--shadow);padding:10px 14px;display:flex;align-items:center;gap:10px;z-index:5;font-size:.82rem;font-weight:600;color:var(--heading)}
+  .pill-float .av{width:34px;height:34px;border-radius:50%;background:var(--gold);display:grid;place-items:center;color:#fff}
+  .pill-float .av svg{width:18px;height:18px}
+
+  /* ================= TRUST STRIP ================= */
+  .trust{background:var(--ink);color:#fff}
+  .trust .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:42px 22px}
+  .trust .item{text-align:center;position:relative}
+  .trust .item:not(:last-child)::after{content:"";position:absolute;right:-10px;top:10%;height:80%;width:1px;background:rgba(255,255,255,.13)}
+  .trust .num{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.8rem,4vw,2.7rem);font-weight:800;color:#fff;letter-spacing:-.02em}
+  .trust .num .plus{color:var(--gold)}
+  .trust .lbl{color:#a9c8c3;font-size:.86rem;margin-top:4px}
+
+  /* ================= ABOUT ================= */
+  .about .grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:54px;align-items:center;padding:90px 0}
+  .about-media{position:relative}
+  .about-media .main{border-radius:24px;overflow:hidden;box-shadow:var(--shadow);background:linear-gradient(160deg,var(--mint),#fff)}
+  .about-media .main img{width:100%;height:520px;object-fit:contain;object-position:bottom}
+  .about-media .photo{position:absolute;bottom:-26px;left:-26px;width:200px;height:150px;border-radius:18px;overflow:hidden;border:5px solid #fff;box-shadow:var(--shadow)}
+  .about-media .photo img{width:100%;height:100%;object-fit:cover}
+  .about-media .exp{position:absolute;top:24px;right:-18px;background:var(--gold);color:#fff;border-radius:16px;padding:14px 18px;text-align:center;box-shadow:var(--shadow)}
+  .about-media .exp b{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.8rem;display:block;line-height:1}
+  .about-media .exp small{font-size:.72rem;letter-spacing:.05em}
+  .about h2{font-size:clamp(1.7rem,3.3vw,2.45rem);margin:.4em 0 .5em;letter-spacing:-.02em}
+  .about .feat{display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;margin:26px 0 30px}
+  .about .feat li{list-style:none;display:flex;align-items:flex-start;gap:.6em;font-weight:600;color:var(--heading);font-size:.95rem}
+  .about .feat li svg{width:20px;height:20px;color:var(--teal);flex:none;margin-top:2px}
+  .about-foot{display:flex;align-items:center;gap:24px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:24px}
+  .sign{display:flex;align-items:center;gap:12px}
+  .sign .av{width:54px;height:54px;border-radius:50%;overflow:hidden;border:2px solid var(--mint);background:var(--mint)}
+  .sign .av img{width:100%;height:100%;object-fit:cover;object-position:top}
+  .sign b{font-family:'Plus Jakarta Sans',sans-serif;color:var(--heading);display:block}
+  .sign small{color:var(--muted);font-size:.82rem}
+
+  /* ================= SERVICES ================= */
+  .services{background:linear-gradient(180deg,#fff,var(--bg));padding:90px 0}
+  .svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .svc{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px;transition:.3s;position:relative;overflow:hidden}
+  .svc::before{content:"";position:absolute;left:0;top:0;height:100%;width:4px;background:var(--teal);transform:scaleY(0);transform-origin:top;transition:.3s}
+  .svc:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:transparent}
+  .svc:hover::before{transform:scaleY(1)}
+  .svc .ic{width:60px;height:60px;border-radius:16px;background:var(--mint);display:grid;place-items:center;color:var(--teal);margin-bottom:18px;transition:.3s}
+  .svc:hover .ic{background:var(--teal);color:#fff}
+  .svc .ic svg{width:30px;height:30px}
+  .svc h3{font-size:1.12rem;margin-bottom:8px}
+  .svc p{font-size:.9rem;color:var(--muted)}
+  .svc .more{display:inline-flex;align-items:center;gap:.4em;margin-top:16px;font-weight:600;font-size:.85rem;color:var(--teal);font-family:'Plus Jakarta Sans',sans-serif}
+  .svc .more svg{width:16px;height:16px;transition:.2s}
+  .svc:hover .more svg{transform:translateX(4px)}
+
+  /* ================= WHY / DARK ================= */
+  .why{background:var(--ink);color:#d8ebe8;overflow:hidden}
+  .why .grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center;padding:90px 0}
+  .why .eyebrow{color:var(--gold)}
+  .why .eyebrow::before{background:var(--gold)}
+  .why h2{color:#fff;font-size:clamp(1.7rem,3.3vw,2.45rem);margin:.4em 0 .6em;letter-spacing:-.02em}
+  .why p.intro{color:#a9c8c3;margin-bottom:26px}
+  .why-list{display:grid;gap:18px}
+  .why-item{display:flex;gap:16px;align-items:flex-start}
+  .why-item .n{width:46px;height:46px;border-radius:12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);display:grid;place-items:center;color:var(--gold);flex:none}
+  .why-item .n svg{width:22px;height:22px}
+  .why-item h4{color:#fff;font-size:1.05rem;margin-bottom:3px}
+  .why-item p{color:#9fbdb8;font-size:.9rem}
+  .why-media{position:relative}
+  .why-media .img{border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}
+  .why-media .img img{width:100%;height:480px;object-fit:cover}
+  .why-quote{position:absolute;bottom:-22px;left:-22px;right:30px;background:var(--gold);color:#3a2e09;border-radius:18px;padding:20px 24px;box-shadow:var(--shadow);font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-style:italic;font-size:1rem}
+
+  /* ================= DOCTOR (Know your doctor) ================= */
+  .doctor{padding:90px 0}
+  .doctor .grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:54px;align-items:center}
+  .doc-card{position:relative;background:linear-gradient(160deg,var(--ink) 0%,var(--ink-2) 100%);border-radius:26px;padding:32px 28px 0;overflow:hidden;box-shadow:var(--shadow)}
+  .doc-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 12%,rgba(200,162,76,.25),transparent 55%)}
+  .doc-card .deco{position:absolute;top:18px;left:18px;color:rgba(255,255,255,.12)}
+  .doc-card .deco svg{width:64px;height:64px}
+  .doc-card img{position:relative;z-index:2;width:100%;height:400px;object-fit:contain;object-position:bottom;filter:drop-shadow(0 14px 24px rgba(0,0,0,.3))}
+  .doc-card .tag{position:absolute;z-index:3;bottom:22px;left:50%;transform:translateX(-50%);background:rgba(255,255,255,.95);backdrop-filter:blur(4px);border-radius:14px;padding:10px 18px;text-align:center;width:max-content;box-shadow:var(--shadow)}
+  .doc-card .tag b{font-family:'Plus Jakarta Sans',sans-serif;color:var(--heading);font-size:1.02rem;display:block}
+  .doc-card .tag small{color:var(--teal-d);font-weight:600;font-size:.78rem;letter-spacing:.04em}
+  .doc-info h2{font-size:clamp(1.7rem,3.3vw,2.4rem);margin:.4em 0 .15em;letter-spacing:-.02em}
+  .doc-info .role{color:var(--teal);font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;margin-bottom:18px;font-size:1rem}
+  .doc-info > p{color:var(--muted);margin-bottom:24px}
+  .cred{display:grid;grid-template-columns:1fr 1fr;gap:18px 26px}
+  .cred .c{display:flex;gap:14px;align-items:flex-start}
+  .cred .c .ic{width:44px;height:44px;border-radius:12px;background:var(--mint);display:grid;place-items:center;color:var(--teal);flex:none}
+  .cred .c .ic svg{width:22px;height:22px}
+  .cred .c h4{font-size:.98rem;margin-bottom:3px}
+  .cred .c p{font-size:.85rem;color:var(--muted);line-height:1.55}
+  .doc-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+
+  /* ================= APPROACH BANNER ================= */
+  .approach{background:linear-gradient(120deg,var(--mint),var(--mint-2));}
+  .approach .wrap{padding:54px 22px}
+  .ap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .ap{background:#fff;border-radius:16px;padding:26px 22px;text-align:center;box-shadow:var(--shadow-sm);transition:.3s}
+  .ap:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+  .ap .ic{width:58px;height:58px;border-radius:50%;margin:0 auto 14px;display:grid;place-items:center;background:var(--mint);color:var(--teal)}
+  .ap .ic svg{width:28px;height:28px}
+  .ap h4{font-size:1.05rem;margin-bottom:4px}
+  .ap p{font-size:.84rem;color:var(--muted)}
+
+  /* ================= GALLERY ================= */
+  .gallery{padding:90px 0}
+  .gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:16px;grid-auto-flow:dense}
+  .gal-grid figure{position:relative;border-radius:16px;overflow:hidden;cursor:pointer;box-shadow:var(--shadow-sm)}
+  .gal-grid img{width:100%;height:100%;object-fit:cover;transition:.5s}
+  .gal-grid figure:hover img{transform:scale(1.08)}
+  .gal-grid figcaption{position:absolute;inset:0;display:flex;align-items:flex-end;padding:16px;color:#fff;font-weight:600;font-family:'Plus Jakarta Sans',sans-serif;font-size:.9rem;
+        background:linear-gradient(0deg,rgba(11,43,40,.78),transparent 55%);opacity:0;transition:.3s}
+  .gal-grid figure:hover figcaption{opacity:1}
+  .gal-grid .tall{grid-row:span 2}
+  .gal-grid .wide{grid-column:span 2}
+
+  /* ================= APPOINTMENT ================= */
+  .appt{background:var(--ink);overflow:hidden}
+  .appt .grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:stretch}
+  .appt-info{padding:84px 0;color:#d8ebe8}
+  .appt-info .eyebrow{color:var(--gold)}.appt-info .eyebrow::before{background:var(--gold)}
+  .appt-info h2{color:#fff;font-size:clamp(1.8rem,3.4vw,2.5rem);margin:.4em 0 .5em;letter-spacing:-.02em}
+  .appt-info > p{color:#a9c8c3;margin-bottom:30px;max-width:440px}
+  .appt-info .row{display:flex;gap:16px;align-items:flex-start;margin-bottom:22px}
+  .appt-info .row .ic{width:48px;height:48px;border-radius:12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);display:grid;place-items:center;color:var(--gold);flex:none}
+  .appt-info .row .ic svg{width:22px;height:22px}
+  .appt-info .row small{color:#9fbdb8;font-size:.8rem;display:block}
+  .appt-info .row b,.appt-info .row a{color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:1.02rem}
+  .appt-info .row a:hover{color:var(--gold)}
+  .hours{display:grid;gap:8px;margin-top:6px}
+  .hours div{display:flex;justify-content:space-between;max-width:330px;font-size:.9rem;color:#bcd6d2;border-bottom:1px dashed rgba(255,255,255,.12);padding-bottom:6px}
+  .hours div b{color:#fff}
+  .appt-form{background:#fff;border-radius:24px;padding:38px 34px;box-shadow:var(--shadow);align-self:center;margin:40px 0}
+  .appt-form h3{font-size:1.4rem;margin-bottom:6px}
+  .appt-form .sub{color:var(--muted);font-size:.9rem;margin-bottom:24px}
+  .field{margin-bottom:16px}
+  .field label{display:block;font-size:.82rem;font-weight:600;color:var(--heading);margin-bottom:6px;font-family:'Plus Jakarta Sans',sans-serif}
+  .field input,.field select,.field textarea{width:100%;padding:.82em 1em;border:1px solid var(--line);border-radius:12px;font-family:inherit;font-size:.95rem;color:var(--heading);background:var(--bg);transition:.2s}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--teal);background:#fff;box-shadow:0 0 0 3px rgba(14,158,148,.12)}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .appt-form .btn-primary{width:100%;justify-content:center;margin-top:6px}
+  .form-note{font-size:.78rem;color:var(--muted);text-align:center;margin-top:14px}
+
+  /* ================= MAP ================= */
+  .map iframe{width:100%;height:420px;border:0;display:block;filter:grayscale(.1)}
+
+  /* ================= FOOTER ================= */
+  footer{background:#072421;color:#9fbdb8;padding:70px 0 0}
+  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.3fr;gap:40px;padding-bottom:50px}
+  footer .logo b{color:#fff}
+  footer .about-txt{margin:18px 0;font-size:.9rem;max-width:300px}
+  .socials{display:flex;gap:10px}
+  .socials a{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.06);display:grid;place-items:center;color:#cfe7e3;transition:.25s}
+  .socials a:hover{background:var(--teal);color:#fff;transform:translateY(-3px)}
+  .socials svg{width:18px;height:18px}
+  footer h5{color:#fff;font-size:1.05rem;margin-bottom:20px}
+  footer ul{list-style:none;display:grid;gap:11px}
+  footer ul a{font-size:.9rem;transition:.2s}
+  footer ul a:hover{color:#fff;padding-left:5px}
+  .foot-contact li{display:flex;gap:11px;font-size:.9rem;align-items:flex-start}
+  .foot-contact svg{width:18px;height:18px;color:var(--teal-l);flex:none;margin-top:3px}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.08);padding:22px 0;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.83rem}
+
+  /* floating whatsapp */
+  .wa-float{position:fixed;right:22px;bottom:22px;z-index:80;width:58px;height:58px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 14px 30px -8px rgba(37,211,102,.6);transition:.25s}
+  .wa-float:hover{transform:scale(1.08)}
+  .wa-float svg{width:30px;height:30px;color:#fff}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(28px);transition:.7s cubic-bezier(.2,.7,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ================= RESPONSIVE ================= */
+  @media(max-width:980px){
+    nav{position:fixed;inset:74px 0 auto 0;background:#fff;border-bottom:1px solid var(--line);transform:translateY(-12px);opacity:0;visibility:hidden;transition:.3s;box-shadow:var(--shadow)}
+    nav.open{transform:none;opacity:1;visibility:visible}
+    nav ul{flex-direction:column;padding:14px 22px;gap:2px}
+    nav a{display:block;padding:.8em .6em}
+    .nav-cta-mobile{display:flex;justify-content:center;margin:6px 22px 18px}
+    .burger{display:grid;place-items:center}
+    .nav-actions .btn-ghost{display:none}
+    .hero .grid,.about .grid,.why .grid,.doctor .grid,.appt .grid{grid-template-columns:1fr}
+    .hero-visual{order:-1}
+    .trust .wrap{grid-template-columns:1fr 1fr;gap:30px 10px}
+    .trust .item:nth-child(2)::after{display:none}
+    .svc-grid,.ap-grid{grid-template-columns:1fr 1fr}
+    .gal-grid{grid-template-columns:1fr 1fr;grid-auto-rows:180px}
+    .about .feat{grid-template-columns:1fr 1fr}
+    .cred{grid-template-columns:1fr}
+    .appt-info{padding:60px 0 0}
+    .appt-form{margin:0 0 40px}
+    .why-quote{position:static;margin-top:18px}
+  }
+  @media(max-width:560px){
+    .topbar .left{gap:14px}
+    .topbar .ti.addr{display:none}
+    .nav-actions .btn-primary{display:none}
+    .logo .mark{width:38px;height:38px}
+    .logo b{font-size:1.05rem}
+    .hero .grid{padding:36px 0}
+    .hero h1{font-size:2.2rem}
+    .svc-grid,.ap-grid,.gal-grid,.about .feat,.field-row{grid-template-columns:1fr}
+    .gal-grid .wide{grid-column:span 1}
+    .gal-grid .tall{grid-row:span 1}
+    .stat-float,.pill-float{transform:scale(.85)}
+    .sf-1{left:-2%}.sf-2{right:-2%}
+    .foot-grid{grid-template-columns:1fr;gap:30px}
+    .about-media .photo{display:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="left">
+      <span class="ti addr">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.4 7-11a7 7 0 0 0-14 0c0 4.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        Lake Road, Doddanekkundi, Bengaluru – 560037
+      </span>
+      <a class="ti" href="tel:+917349051997">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+        073490 51997
+      </a>
+    </div>
+    <div class="rev">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.8 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+      4.8 ★ · 147 Google reviews
+    </div>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header id="header">
+  <div class="wrap nav">
+    <a href="#home" class="logo">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21c-1-6-5-6-5-11a5 5 0 0 1 10 0c0 5-4 5-5 11z"/><path d="M12 3v18" opacity=".5"/><path d="M9 8c1.5 1 4.5 1 6 0"/></svg>
+      </span>
+      <span><b>Ashwini Clinic</b><span>Ayurveda • Modern • Wellness</span></span>
+    </a>
+    <nav id="nav">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#doctor">Our Doctor</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#appointment">Contact</a></li>
+      </ul>
+      <a href="#appointment" class="btn btn-primary nav-cta-mobile">Book Appointment</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="tel:+917349051997" class="btn btn-ghost">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+        Call Now
+      </a>
+      <a href="#appointment" class="btn btn-primary">Book Appointment</a>
+      <button class="burger" id="burger" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="wrap grid">
+    <div class="hero-copy">
+      <span class="hero-badge"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg></span> Trusted by 1,00,000+ patients in Bengaluru</span>
+      <h1>Healing With <span class="accent">Ayurveda</span> &amp; Modern Medicine</h1>
+      <p class="lead">At Ashwini Clinic, Dr. Amareshayya Hosamata blends time-tested Ayurvedic wisdom with modern medical science — treating the root cause, not just the symptoms.</p>
+      <div class="hero-cta">
+        <a href="#appointment" class="btn btn-primary">Book an Appointment
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#doctor" class="watch"><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span> Meet the Doctor</a>
+      </div>
+      <div class="hero-contact">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span>
+        <span><small>Have a question? Call us</small><a href="tel:+917349051997"><b>+91 73490 51997</b></a></span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img class="hero-img" src="assets/dr-hero.png" alt="Dr. Amareshayya Hosamata, BAMS — Ashwini Clinic" />
+      <div class="stat-float sf-1">
+        <svg class="ring" viewBox="0 0 36 36"><path d="M18 2a16 16 0 1 1 0 32 16 16 0 0 1 0-32" fill="none" stroke="#E8F5F3" stroke-width="3.4"/><path d="M18 2a16 16 0 0 1 14.5 22.6" fill="none" stroke="#0E9E94" stroke-width="3.4" stroke-linecap="round"/><text x="18" y="21" text-anchor="middle" font-size="9" font-weight="700" fill="#0C2B28" font-family="Plus Jakarta Sans">98%</text></svg>
+        <div><b>98%</b><small>Recovery rate</small></div>
+      </div>
+      <div class="stat-float sf-2">
+        <span class="ring" style="width:54px;height:54px;border-radius:14px;background:var(--mint);display:grid;place-items:center;color:var(--teal)"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21c-1-6-5-6-5-11a5 5 0 0 1 10 0c0 5-4 5-5 11z"/></svg></span>
+        <div><b>10+ Yrs</b><small>Of clinical care</small></div>
+      </div>
+      <div class="pill-float">
+        <span class="av"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg></span>
+        BAMS · Govt. Recognised
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST STRIP ============ -->
+<section class="trust">
+  <div class="wrap">
+    <div class="item reveal"><div class="num" data-count="100000" data-suffix="+">0</div><div class="lbl">Patients Treated</div></div>
+    <div class="item reveal"><div class="num" data-count="10" data-suffix="+">0</div><div class="lbl">Years Experience</div></div>
+    <div class="item reveal"><div class="num"><span style="font-size:.7em">★</span> 4.8</div><div class="lbl">Google Rating (147 reviews)</div></div>
+    <div class="item reveal"><div class="num" data-count="3" data-suffix="-in-1">0</div><div class="lbl">Clinic · Day Care · Pharmacy</div></div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="wrap grid">
+    <div class="about-media reveal">
+      <div class="main"><img src="assets/dr-about.png" alt="Dr. Amareshayya Hosamata at Ashwini Clinic" /></div>
+      <div class="photo"><img src="assets/reception.jpg" alt="Ashwini Clinic reception" /></div>
+      <div class="exp"><b>10+</b><small>Years of<br>Trusted Care</small></div>
+    </div>
+    <div class="about-copy reveal">
+      <span class="eyebrow">About Ashwini Clinic</span>
+      <h2>Comprehensive, Compassionate Care Designed Around You</h2>
+      <p>For more than a decade, Ashwini Clinic in Doddanekkundi has been a trusted neighbourhood medical centre. By combining the wisdom of Ayurveda with the understanding of modern medical science, we offer a balanced approach that focuses not only on managing illness, but on preventive healthcare and long-term well-being.</p>
+      <ul class="feat">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Ayurvedic Treatments</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> General &amp; Family Medicine</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Day Care Facility</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> In-house Pharmacy &amp; Lab</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Lifestyle Disorder Care</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Preventive Wellness</li>
+      </ul>
+      <div class="about-foot">
+        <a href="#about" class="btn btn-primary">More About Us</a>
+        <div class="sign">
+          <div class="av"><img src="assets/dr-hero.png" alt="Dr. Amareshayya Hosamata" /></div>
+          <div><b>Dr. Amareshayya Hosamata</b><small>BAMS · Founder &amp; Consulting Physician</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Our Services</span>
+      <h2>Start Feeling Your Best</h2>
+      <p>A complete range of Ayurvedic and modern healthcare services under one roof — for every member of your family.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21c-1-6-5-6-5-11a5 5 0 0 1 10 0c0 5-4 5-5 11z"/><path d="M9 8c1.5 1 4.5 1 6 0"/></svg></div>
+        <h3>Ayurvedic Care</h3>
+        <p>Classical Ayurvedic consultation and treatment targeting the root cause of illness and restoring natural balance.</p>
+        <a href="#appointment" class="more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+      <article class="svc reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 14a7 7 0 1 1-9.9-6.4"/><path d="M12 2v6l3 1"/><path d="M19 5l1 1"/></svg></div>
+        <h3>General Medicine</h3>
+        <p>Diagnosis and treatment of fever, infections, and acute or chronic conditions with modern clinical methods.</p>
+        <a href="#appointment" class="more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+      <article class="svc reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M12 11v5M9.5 13.5h5"/></svg></div>
+        <h3>Day Care Facility</h3>
+        <p>Comfortable in-house day care beds for IV therapy, observation and short-stay treatment under supervision.</p>
+        <a href="#appointment" class="more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+      <article class="svc reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 2v4l-4 7a4 4 0 0 0 3.5 6h5A4 4 0 0 0 18 13l-4-7V2"/><path d="M8 2h8M7.5 13h9"/></svg></div>
+        <h3>Pharmacy &amp; Lab</h3>
+        <p>On-site Ashwini Pharmacy and diagnostic lab investigations so you get medicines and reports without delay.</p>
+        <a href="#appointment" class="more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+      <article class="svc reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h4l2 5 4-12 2 7h6"/></svg></div>
+        <h3>Lifestyle Disorders</h3>
+        <p>Personalised management of diabetes, hypertension, obesity and stress through diet, herbs and modern care.</p>
+        <a href="#appointment" class="more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+      <article class="svc reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+        <h3>Preventive Wellness</h3>
+        <p>Routine check-ups, immunity building and lifestyle guidance to keep you and your family healthy year-round.</p>
+        <a href="#appointment" class="more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+      <article class="svc reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9a3 3 0 0 1 6 0v3M9 12a3 3 0 0 0 6 0V9"/><circle cx="18" cy="12" r="3"/><path d="M3 9v6"/></svg></div>
+        <h3>Swarna Prashana</h3>
+        <p>Traditional Ayurvedic immunisation for children to boost memory, immunity, strength and overall growth.</p>
+        <a href="#appointment" class="more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+      <article class="svc reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.3-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.7-7 10-7 10z"/></svg></div>
+        <h3>Holistic Wellness</h3>
+        <p>Personalised care addressing physical, mental and emotional well-being through an integrated approach.</p>
+        <a href="#appointment" class="more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY CHOOSE US ============ -->
+<section class="why">
+  <div class="wrap grid">
+    <div class="why-copy reveal">
+      <span class="eyebrow">Why Choose Us</span>
+      <h2>A Balanced Approach to Your Health</h2>
+      <p class="intro">Dr. Amareshayya believes true healing happens when treatment addresses the root cause of illness while supporting the body's own natural healing mechanisms.</p>
+      <div class="why-list">
+        <div class="why-item">
+          <span class="n"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.4 8.5 8 11 4.6-2.5 8-6 8-11V5z"/><path d="M9 12l2 2 4-4"/></svg></span>
+          <div><h4>Integrated Medicine</h4><p>The strengths of Ayurveda combined with modern medical training recognised by the Government.</p></div>
+        </div>
+        <div class="why-item">
+          <span class="n"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-5h6v5"/></svg></span>
+          <div><h4>Root-Cause Healing</h4><p>We don't just treat symptoms — we identify and address the underlying cause for lasting relief.</p></div>
+        </div>
+        <div class="why-item">
+          <span class="n"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></span>
+          <div><h4>Personalised &amp; Ethical</h4><p>Every patient is treated with respect and individualised attention — safe, affordable, effective care.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="why-media reveal">
+      <div class="img"><img src="assets/consult2.jpg" alt="Dr. Amareshayya consulting a patient at Ashwini Clinic" /></div>
+      <div class="why-quote">“Healing with Knowledge, Caring with Heart, Serving with Dedication.”</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DOCTOR ============ -->
+<section class="doctor" id="doctor">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Know Your Doctor</span>
+      <h2>Meet Dr. Amareshayya Hosamata</h2>
+      <p>A compassionate, dedicated healthcare professional serving patients with commitment and integrity for more than a decade.</p>
+    </div>
+    <div class="grid">
+      <div class="doc-card reveal">
+        <span class="deco"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 7h6v6c0 3.3-2.7 6-6 6v-3a3 3 0 0 0 3-3H7zm9 0h6v6c0 3.3-2.7 6-6 6v-3a3 3 0 0 0 3-3h-3z"/></svg></span>
+        <img src="assets/dr-cta.png" alt="Dr. Amareshayya Hosamata, BAMS" />
+        <div class="tag"><b>Dr. Amareshayya Hosamata</b><small>BAMS · Consulting Physician</small></div>
+      </div>
+      <div class="doc-info reveal">
+        <h2>Dr. Amareshayya Hosamata</h2>
+        <div class="role">Bachelor of Ayurvedic Medicine &amp; Surgery (BAMS)</div>
+        <p>By combining the wisdom of Ayurveda with the understanding of modern medical sciences, Dr. Amareshayya offers a comprehensive approach to health — focusing not only on disease management but also on preventive healthcare and long-term well-being.</p>
+        <div class="cred">
+          <div class="c">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.7 3 6 3s6-2 6-3v-5"/></svg></span>
+            <div><h4>Medical Education</h4><p>BAMS from Taranath Government Ayurvedic Medical College, one of Karnataka's reputed institutions.</p></div>
+          </div>
+          <div class="c">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 5v6c0 5 3.4 8.5 8 11 4.6-2.5 8-6 8-11V5z"/><path d="M9 12l2 2 4-4"/></svg></span>
+            <div><h4>Integrated Training</h4><p>Additional training in modern medical sciences recognised by the Government.</p></div>
+          </div>
+          <div class="c">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/><path d="m17 4 1.5 1.5L21 3"/></svg></span>
+            <div><h4>Clinical Experience</h4><p>10+ years of practice, having successfully treated and guided over 1,00,000 patients.</p></div>
+          </div>
+          <div class="c">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.3-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.7-7 10-7 10z"/></svg></span>
+            <div><h4>Treatment Philosophy</h4><p>Personalised care, patient education and healthy lifestyle practices for holistic wellness.</p></div>
+          </div>
+        </div>
+        <div class="doc-actions">
+          <a href="#appointment" class="btn btn-primary">Book a Consultation</a>
+          <a href="tel:+917349051997" class="btn btn-ghost">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+            Call the Clinic
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APPROACH BANNER ============ -->
+<section class="approach">
+  <div class="wrap">
+    <div class="section-head reveal" style="margin-bottom:34px">
+      <span class="eyebrow">Our Promise</span>
+      <h2>Caring For You, Always</h2>
+    </div>
+    <div class="ap-grid">
+      <div class="ap reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21c-1-6-5-6-5-11a5 5 0 0 1 10 0c0 5-4 5-5 11z"/><path d="M9 8c1.5 1 4.5 1 6 0"/></svg></div>
+        <h4>Ayurveda</h4><p>Ancient Wisdom</p>
+      </div>
+      <div class="ap reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M3 12h18" /><circle cx="12" cy="12" r="9" opacity=".4"/></svg></div>
+        <h4>Modern Medicine</h4><p>Advanced Science</p>
+      </div>
+      <div class="ap reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.3-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.7-7 10-7 10z"/></svg></div>
+        <h4>Holistic Care</h4><p>Complete Wellness</p>
+      </div>
+      <div class="ap reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2 20c0-3.3 3-5 7-5s7 1.7 7 5M16 14c3 .3 6 1.8 6 5"/></svg></div>
+        <h4>Caring For You</h4><p>Always</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Our Clinic</span>
+      <h2>A Look Inside Ashwini Clinic</h2>
+      <p>Clean, comfortable and well-equipped — a calm space designed to help you feel at ease.</p>
+    </div>
+    <div class="gal-grid">
+      <figure class="tall reveal"><img src="assets/clinic-exterior.jpg" alt="Ashwini Clinic exterior signboard"><figcaption>Ashwini Clinic — Doddanekkundi</figcaption></figure>
+      <figure class="wide reveal"><img src="assets/consult3.jpg" alt="Doctor consulting a patient"><figcaption>Doctor Consultation</figcaption></figure>
+      <figure class="reveal"><img src="assets/pharmacy.jpg" alt="Ashwini Medical pharmacy"><figcaption>In-house Pharmacy</figcaption></figure>
+      <figure class="reveal"><img src="assets/reception.jpg" alt="Clinic reception area"><figcaption>Reception</figcaption></figure>
+      <figure class="reveal"><img src="assets/daycare.jpg" alt="Day care ward beds"><figcaption>Day Care Ward</figcaption></figure>
+      <figure class="reveal"><img src="assets/consult1.jpg" alt="Doctor with patient"><figcaption>Patient Care</figcaption></figure>
+      <figure class="wide reveal"><img src="assets/corridor.jpg" alt="Clinic corridor"><figcaption>Consultation Rooms</figcaption></figure>
+      <figure class="reveal"><img src="assets/consult2.jpg" alt="Doctor examining a patient"><figcaption>Personalised Care</figcaption></figure>
+      <figure class="reveal"><img src="assets/corridor2.jpg" alt="Ashwini Clinic interior corridor"><figcaption>Clean Facilities</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APPOINTMENT ============ -->
+<section class="appt" id="appointment">
+  <div class="wrap grid">
+    <div class="appt-info reveal">
+      <span class="eyebrow">Book An Appointment</span>
+      <h2>Visit Us or Schedule a Consultation</h2>
+      <p>We'll send you a confirmation. For urgent help, call us directly — we're happy to assist you.</p>
+      <div class="row">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.4 7-11a7 7 0 0 0-14 0c0 4.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+        <div><small>Our Location</small><b>Lake Road, near Kodandaramaswamy Temple,<br>Doddanekkundi, Bengaluru, Karnataka 560037</b></div>
+      </div>
+      <div class="row">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span>
+        <div><small>Call / WhatsApp</small><a href="tel:+917349051997">+91 73490 51997</a></div>
+      </div>
+      <div class="row">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+        <div style="flex:1"><small>Opening Hours</small>
+          <div class="hours">
+            <div><span>Mon – Sat</span><b>9:00 AM – 9:00 PM</b></div>
+            <div><span>Sunday</span><b>10:00 AM – 1:00 PM</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form class="appt-form reveal" id="apptForm" novalidate>
+      <h3>Request an Appointment</h3>
+      <p class="sub">Fill in your details and we'll get back to you within 24 hours.</p>
+      <div class="field-row">
+        <div class="field"><label for="name">Full Name</label><input id="name" name="name" type="text" placeholder="Your name" required></div>
+        <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" placeholder="Mobile number" required></div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="service">Service</label>
+          <select id="service" name="service">
+            <option>Ayurvedic Consultation</option>
+            <option>General Medicine</option>
+            <option>Day Care Treatment</option>
+            <option>Lifestyle Disorder Care</option>
+            <option>Swarna Prashana (Kids)</option>
+            <option>Preventive Health Check</option>
+          </select>
+        </div>
+        <div class="field"><label for="date">Preferred Date</label><input id="date" name="date" type="date"></div>
+      </div>
+      <div class="field"><label for="msg">Message (optional)</label><textarea id="msg" name="msg" rows="3" placeholder="Briefly describe your concern"></textarea></div>
+      <button type="submit" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg>
+        Confirm via WhatsApp
+      </button>
+      <p class="form-note">By submitting, your details open in WhatsApp to send to the clinic. No data is stored on this site.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ MAP ============ -->
+<section class="map">
+  <iframe
+    title="Ashwini Clinic location map"
+    src="https://www.google.com/maps?q=Ashwini%20Clinic%20Doddanekkundi%20Bengaluru%20560037&output=embed"
+    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="logo">
+          <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21c-1-6-5-6-5-11a5 5 0 0 1 10 0c0 5-4 5-5 11z"/><path d="M9 8c1.5 1 4.5 1 6 0"/></svg></span>
+          <span><b>Ashwini Clinic</b><span style="color:var(--gold)">Ayurveda • Modern • Wellness</span></span>
+        </div>
+        <p class="about-txt">Promoting healthier lives by delivering quality healthcare that combines ancient Ayurvedic knowledge with modern medical insight — for your physical, mental and emotional well-being.</p>
+        <div class="socials">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-9h3l.5-3.5H13V7.3c0-1 .3-1.7 1.8-1.7H17V2.4C16.6 2.3 15.4 2.2 14 2.2 11.2 2.2 9.3 3.9 9.3 7v2.5H6.4V13h2.9v9z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="https://wa.me/917349051997" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.5A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.9.9-2.8-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8.9-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.2 0-.3 0-.5s-.5-1.3-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1A4.9 4.9 0 0 0 8 12c.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#doctor">Our Doctor</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#services">Ayurvedic Care</a></li>
+          <li><a href="#services">General Medicine</a></li>
+          <li><a href="#services">Day Care</a></li>
+          <li><a href="#services">Pharmacy &amp; Lab</a></li>
+          <li><a href="#services">Swarna Prashana</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Get in Touch</h5>
+        <ul class="foot-contact">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.4 7-11a7 7 0 0 0-14 0c0 4.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Lake Road, Doddanekkundi, near Kodandaramaswamy Temple, Bengaluru 560037</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg> <a href="tel:+917349051997">+91 73490 51997</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Mon–Sat: 9 AM – 9 PM · Sun: 10 AM – 1 PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr"></span> Ashwini Clinic. All rights reserved.</span>
+      <span>KPME Regn. No. BLU0066BAYCWO · Dr. Amareshayya Hosamata, BAMS</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/917349051997?text=Hi%20Ashwini%20Clinic%2C%20I%27d%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.5A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.9.9-2.8-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8.9-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.2 0-.3 0-.5s-.5-1.3-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1A4.9 4.9 0 0 0 8 12c.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1z"/></svg>
+</a>
+
+<script>
+  // year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // header shadow on scroll
+  const header = document.getElementById('header');
+  addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 10));
+
+  // mobile menu
+  const burger = document.getElementById('burger'), nav = document.getElementById('nav');
+  burger.addEventListener('click', () => nav.classList.toggle('open'));
+  nav.addEventListener('click', e => { if (e.target.tagName === 'A') nav.classList.remove('open'); });
+
+  // reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => { if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+  }, { threshold: .14 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // animated counters
+  const fmt = n => n >= 1000 ? n.toLocaleString('en-IN') : n;
+  const counters = document.querySelectorAll('[data-count]');
+  const cio = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+      if (!en.isIntersecting) return;
+      const el = en.target, target = +el.dataset.count, suffix = el.dataset.suffix || '';
+      let cur = 0, step = Math.max(1, Math.ceil(target / 60));
+      const tick = () => { cur += step; if (cur >= target){ el.textContent = fmt(target) ; el.innerHTML += '<span class="plus">'+suffix+'</span>'; }
+        else { el.textContent = fmt(cur); requestAnimationFrame(tick); } };
+      tick(); cio.unobserve(el);
+    });
+  }, { threshold: .5 });
+  counters.forEach(c => cio.observe(c));
+
+  // appointment form -> WhatsApp
+  document.getElementById('apptForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const f = e.target;
+    if(!f.name.value.trim() || !f.phone.value.trim()){ f.reportValidity(); return; }
+    const lines = [
+      '*New Appointment Request — Ashwini Clinic*',
+      '',
+      '👤 Name: ' + f.name.value,
+      '📞 Phone: ' + f.phone.value,
+      '🩺 Service: ' + f.service.value,
+      '📅 Preferred date: ' + (f.date.value || 'Any'),
+      '📝 Note: ' + (f.msg.value || '—')
+    ];
+    window.open('https://wa.me/917349051997?text=' + encodeURIComponent(lines.join('\n')), '_blank');
+  });
+</script>
+</body>
+</html>
