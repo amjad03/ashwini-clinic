@@ -203,9 +203,12 @@
   .doctor .grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:54px;align-items:center}
   .doc-card{position:relative;background:linear-gradient(160deg,var(--ink) 0%,var(--ink-2) 100%);border-radius:26px;padding:32px 28px 0;overflow:hidden;box-shadow:var(--shadow)}
   .doc-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 12%,rgba(200,162,76,.25),transparent 55%)}
-  .doc-card .deco{position:absolute;top:18px;left:18px;color:rgba(255,255,255,.12)}
-  .doc-card .deco svg{width:64px;height:64px}
-  .doc-card img{position:relative;z-index:2;width:100%;height:400px;object-fit:contain;object-position:bottom;filter:drop-shadow(0 14px 24px rgba(0,0,0,.3))}
+  .doc-card .doc-quote{position:relative;z-index:3;margin:2px 4px 0;padding:0}
+  .doc-card .deco{display:block;color:var(--gold);line-height:0;margin-bottom:6px}
+  .doc-card .deco svg{width:44px;height:44px}
+  .doc-card .doc-quote p{color:#eaf5f2;font-family:'Plus Jakarta Sans',sans-serif;font-style:italic;font-weight:600;font-size:1rem;line-height:1.5;margin:0 0 10px}
+  .doc-card .doc-quote cite{color:var(--gold);font-style:normal;font-weight:700;font-size:.8rem;letter-spacing:.05em}
+  .doc-card img{position:relative;z-index:2;width:100%;height:340px;object-fit:contain;object-position:bottom;margin-top:-6px;filter:drop-shadow(0 14px 24px rgba(0,0,0,.3))}
   .doc-card .tag{position:absolute;z-index:3;bottom:22px;left:50%;transform:translateX(-50%);background:rgba(255,255,255,.95);backdrop-filter:blur(4px);border-radius:14px;padding:10px 18px;text-align:center;width:max-content;box-shadow:var(--shadow)}
   .doc-card .tag b{font-family:'Plus Jakarta Sans',sans-serif;color:var(--heading);font-size:1.02rem;display:block}
   .doc-card .tag small{color:var(--teal-d);font-weight:600;font-size:.78rem;letter-spacing:.04em}
@@ -570,7 +573,11 @@
     </div>
     <div class="grid">
       <div class="doc-card reveal">
-        <span class="deco"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 7h6v6c0 3.3-2.7 6-6 6v-3a3 3 0 0 0 3-3H7zm9 0h6v6c0 3.3-2.7 6-6 6v-3a3 3 0 0 0 3-3h-3z"/></svg></span>
+        <blockquote class="doc-quote">
+          <span class="deco"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 7h6v6c0 3.3-2.7 6-6 6v-3a3 3 0 0 0 3-3H7zm9 0h6v6c0 3.3-2.7 6-6 6v-3a3 3 0 0 0 3-3h-3z"/></svg></span>
+          <p>Nature has the power to heal because it is where we are from, it is where we belong and it belongs to us as an essential part of our health and our survival.</p>
+          <cite>— Nooshin Razani</cite>
+        </blockquote>
         <img src="assets/dr-cta.png" alt="Dr. Amareshayya Hosamata, BAMS" />
         <div class="tag"><b>Dr. Amareshayya Hosamata</b><small>BAMS · Consulting Physician</small></div>
       </div>
